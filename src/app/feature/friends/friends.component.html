@@ -1,0 +1,41 @@
+<h3>{{title}}</h3>
+<h4>New Friend</h4>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>BFF?</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <form #newFriendForm = "ngForm">
+                <td><input type="text" [(ngModel)]="newFriend.name" ngModel required></td>
+                <td><input type="number" [(ngModel)]="newFriend.age" ngModel required></td>
+                <td><input type="email" [(ngModel)]="newFriend.email" ngModel required email></td>
+                <td><input type="checkbox" [(ngModel)]="newFriend.bff"></td>
+            </form>
+        </tr>
+    </tbody>
+</table>
+<button (click)="addFriend()" [disabled]="validFriend">Add</button>
+<table class = "table">
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Age</th>
+        <th>Email</th>
+        <th>BFF?</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let f of friends">
+            <td>{{f.name}}</td>
+            <td>{{f.age}}</td>
+            <td>{{f.email}}</td>
+            <td>{{f.bff}}</td>
+        </tr>
+    </tbody>
+</table>
